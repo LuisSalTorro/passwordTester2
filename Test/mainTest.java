@@ -3,85 +3,52 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class mainTest {
-
+    main test = new main();
     @Test
-    void passwordIsGoodTest1() throws Exception{
-        main test1 = new main();
-        String pass = "Heyyall1";
-
-        assertEquals(true, test1.passwordIsGood(pass));
+    void passwordIsGoodTrue() {
+        String p = "Password1234!!";
+        assertEquals(true, test.passwordIsGood(p));
     }
 
     @Test
-    void digitsTest() throws Exception{
-        main test2 = new main();
-        String digit = "passworDS$";
-
-        assertEquals(true,test2.containsDigits(digit));
+    void passwordIsGoodFalse() {
+        String p = "Password";
+        assertEquals(true, test.passwordIsGood(p));
     }
 
     @Test
-    void upperLowerTest() throws Exception{
-        main test2 = new main();
-        String upper = "password45^";
-
-        assertEquals(true,test2.containsUpLowCase(upper));
+    void containsDigits() {
+        String p = "1234";
+        assertEquals(true, test.containsDigits(p));
     }
 
     @Test
-    void specialTest() throws Exception{
-        main test2 = new main();
-        String special = "NoSpecia7l";
-
-        assertEquals(true,test2.hasSpecial(special));
+    void containsDigitsFalse() {
+        String p = "password";
+        assertEquals(true, test.containsDigits(p));
     }
 
     @Test
-    void passwordIsGoodTest2() throws Exception{
-        main test1 = new main();
-        String pass = "Heyyall";
-
-        assertEquals(false, test1.passwordIsGood(pass));
+    void containsUpLowCase() {
+        String p = "Password";
+        assertEquals(true, test.containsUpLowCase(p));
     }
 
     @Test
-    void digitsTest2() throws Exception{
-        main test2 = new main();
-        String digit = "password";
-
-        assertEquals(false,test2.containsDigits(digit));
+    void containsUpLowCaseFalse() {
+        String p = "asdfgqrwe";
+        assertEquals(true, test.containsUpLowCase(p));
     }
 
     @Test
-    void upperLowerTest2() throws Exception{
-        main test2 = new main();
-        String upper = "IWUWHAHD";
-
-        assertEquals(false,test2.containsUpLowCase(upper));
+    void hasSpecial() {
+        String p = "asdf1!@";
+        assertEquals(true, test.hasSpecial(p));
     }
 
     @Test
-    void specialTest2() throws Exception{
-        main test2 = new main();
-        String special = "NoSpecial";
-
-        assertEquals(false,test2.hasSpecial(special));
+    void hasSpecialFalse() {
+        String p = "fdsagjkl";
+        assertEquals(true, test.hasSpecial(p));
     }
-
-    @Test
-    void lengthTest1() throws Exception{
-        main test2 = new main();
-        String special = "short";
-
-        assertEquals(true,test2.hasSpecial(special));
-    }
-
-    @Test
-    void lengthTest2() throws Exception{
-        main test2 = new main();
-        String special = "short";
-
-        assertEquals(false,test2.length(special));
-    }
-
 }
